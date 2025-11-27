@@ -34,7 +34,7 @@
 
 
 ```bash
-git clone https://github.com/<твій-username>/books-scraper.git
+git clone https://github.com/TsapenkoA/books-scraper.git
 cd books-scraper
 python -m venv venv
 # Windows
