@@ -1,0 +1,51 @@
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.sqlite3
+*.egg-info/
+*.egg
+dist/
+build/
+*.log
+
+# -----------------------------
+# Playwright
+# -----------------------------
+playwright/.local-browsers/
+playwright/.cache/
+playwright/.npm/
+playwright/.yarn/
+
+# -----------------------------
+# OS
+# -----------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# -----------------------------
+# IDE / Editor
+# -----------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# -----------------------------
+# Test / Output Files
+# -----------------------------
+*.json
+*.csv
+*.sqlite
+
+# Virtual environment
+venv/
+.venv/
