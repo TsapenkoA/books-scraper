@@ -1,4 +1,3 @@
-# main.py
 import multiprocessing
 import time
 import json
@@ -8,22 +7,14 @@ import os
 from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
-# -----------------------------
-# Конфігурація через .env
-# -----------------------------
+
 load_dotenv()
 NUM_PROCESSES = int(os.getenv("NUM_PROCESSES", 3))
 HEADLESS = os.getenv("HEADLESS", "True").lower() == "true"
 OUTPUT_FILE = os.getenv("OUTPUT_FILE", "books.json")
 
-# -----------------------------
-# URL шаблон
-# -----------------------------
 BASE_URL = "https://books.toscrape.com/catalogue/category/books_1/page-{}.html"
 
-# -----------------------------
-# Scraper Process
-# -----------------------------
 class ScraperProcess(multiprocessing.Process):
     def __init__(self, task_queue, result_queue, headless=True, test_mode=False):
         super().__init__()
@@ -92,9 +83,6 @@ class ScraperProcess(multiprocessing.Process):
         except Exception as e:
             print(f"[{self.name}] Error scraping book {book_url}: {e}")
 
-# -----------------------------
-# Process Manager
-# -----------------------------
 class ProcessManager:
     def __init__(self, num_processes=3, test_mode=False):
         self.num_processes = num_processes
@@ -135,10 +123,7 @@ class ProcessManager:
             except Empty:
                 break
         return results
-
-# -----------------------------
-# Main
-# -----------------------------
+        
 def main():
     manager = ProcessManager(num_processes=NUM_PROCESSES, test_mode=False)
     manager.populate_tasks(num_pages=3)
@@ -152,3 +137,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
